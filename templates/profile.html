@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile - Discuss Now!{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <h2>My Profile</h2>
+    <p></p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: {{ user.username }}</li>
+        <li class="list-group-item">Email: {{ user.email }}</li>
+    </ul>
+
+    <hr>
+
+    <h3>Your Threads</h3>
+    <ul class="list-group list-group-flush">
+        {% for thread in threads %}
+        <li class="list-group-item">{{ thread }}</li>
+        {% empty %}
+        No Threads!
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

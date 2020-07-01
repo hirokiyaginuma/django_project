@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Discuss now!{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    {% if messages %}
+        {% for msg in messages %}       
+            <div class="alert alert-{{msg.level_tag}}" role="alert">
+            {{msg.message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="container">
+        <h2>Discuss Now!</h2>
+        <div>
+          <p>You can create threads to discuss about what you're thinking with your friends.
+          Register and join the dicussion thread now!</p>
+        </div>
+        <hr>
+        <div>
+          <h4>Test the website!</h4>
+          <p>These users are created for testing purpose. Go ahead to try!</p>
+          <ul class="list-group list-group-flush"></ul>
+            <li class="list-group-item">Username: User1 Password:pass123word</li>
+            <li class="list-group-item">Username: User2 Password:pass123word</li>
+          </ul>
+        </div>
+        <div>
+            <p></p>
+            <p>Or, create your own account to test the website!</p>
+          </div>
+      <hr>
+        <div>
+          <h4>Admin page</h4>
+          <p>Click <a href="/admin">here</a> to jump to admin page.</p>
+          <ul class="list-group list-group-flush"></ul>
+            <li class="list-group-item">Username: admin Password:adminpassword</li>
+          </ul>
+        </div>
+    </div>
+
+  </div>
+{% endblock %}

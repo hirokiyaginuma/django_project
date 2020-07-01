@@ -1,0 +1,17 @@
+body {
+  background-color: ghostwhite;
+}
+
+.card {
+  width: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 15px;
+}
+
+.navbtn {
+  margin:5px;
+}

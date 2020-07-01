@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Threads - Discuss now!{% endblock %}
+
+{% block body %}
+
+<div class=container>
+    <h2>Threads</h2>
+    <p></p>
+
+    {% if messages %}
+        {% for msg in messages %}       
+            <div class="alert alert-{{msg.level_tag}}" role="alert">
+            {{msg.message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% for thread in threads %}
+    <div class="card">
+        <div class="card-body">
+        <h5 class="card-title">{{ thread.title }}</h5>
+        <p class="card-text">Author: {{ thread.author }}<br>Date: {{ thread.date }}<br>
+        </p>
+        <a href="{% url 'thread_detail' pk=thread.pk %}" class="btn btn-primary">See more</a>
+        </div>
+    </div>
+    {% empty %}
+        No Threads!
+    {% endfor %}
+
+    <hr>
+
+    {% if user.is_authenticated %}
+    <h2>New Thread</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="save btn btn-primary">Save</button>
+    </form>
+    {% else %}
+    <div class="alert alert-info" role="alert">
+        You have to login to make a new thread.
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}
